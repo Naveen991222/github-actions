@@ -36,20 +36,22 @@ jobs:
 
       - name: Send email on success
         if: success()
-        uses: peter-evans/sendgrid-email@v1
+        uses: peter-evans/sendgrid-email@v2
         with:
           sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
-          to: bnaveen0515@gmail.com
+          to: |
+            bnaveen0515@gmail.com,
+            user2@example.com,
+            user3@example.com
           from: sureshkumart305@gmail.com
-          subject: "✅ Docker Build & Push Successful - ${{ github.repository }}"
+          subject: "✅ Build & Push Successful - ${{ github.repository }}"
           body: |
-            Hello Naveen,
+            Hello team,
 
-            Your Docker image has been built and pushed successfully.
+            🎉 Docker image has been successfully built and pushed.
 
             🔹 Repository: ${{ github.repository }}
-            🔹 Commit SHA: ${{ github.sha }}
-            🔹 Image Tag: ${{ steps.vars.outputs.sha_short }}
+            🔹 Commit: ${{ github.sha }}
+            🔹 Docker Tag: ${{ steps.vars.outputs.sha_short }}
 
-            Regards,
-            GitHub Actions
+            – GitHub Actions
