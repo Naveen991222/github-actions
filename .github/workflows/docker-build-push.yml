@@ -34,25 +34,16 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-dockerhub:${{ steps.vars.outputs.sha_short }}
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install SendGrid dependency
+        run: npm install @sendgrid/mail
+
       - name: Send email notification
         if: success()
-        uses: cactuslab/sendgrid-email-action@v1.0.4
-        with:
-          api-key: ${{ secrets.SENDGRID_API_KEY }}
-          from: sureshkumart305@gmail.com
-          to: |
-            bnaveen0515@gmail.com,
-            yashoda@example.com,
-            person1@example.com
-          subject: "✅ Build Successful: ${{ github.repository }}"
-          body: |
-            Hello Team,
-
-            The Docker image has been successfully built and pushed.
-
-            🔹 Repository: ${{ github.repository }}
-            🔹 Commit SHA: ${{ github.sha }}
-            🔹 Docker Tag: ${{ steps.vars.outputs.sha_short }}
-
-            Regards,
-            GitHub Actions
+        run: node .github/sendgrid.js
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
