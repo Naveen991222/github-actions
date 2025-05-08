@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: process.env.GMAIL_USER,
-  to: ['bnaveen0515@gmail.com'], // add more recipients if needed
+  to: ['bnaveen0515@gmail.com',sureshkumart305@gmail.com,], // add more recipients if needed
   subject: '✅ Docker Image Build Success',
   text: 'The Docker image was successfully built and pushed from your GitHub Actions workflow.',
 };
