@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 
+const sha = process.env.COMMIT_SHA;
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -10,9 +12,9 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: process.env.GMAIL_USER,
-  to: ['bnaveen0515@gmail.com',sureshkumart305@gmail.com,], // add more recipients if needed
-  subject: '✅ Docker Image Build Success',
-  text: 'The Docker image was successfully built and pushed from your GitHub Actions workflow.',
+  to: ['bnaveen0515@gmail.com','unnatigupta8449@gmail.com','sureshkumart305@gmail.com'],
+  subject: `✅ Docker Image Build Success - Commit ${sha}`,
+  text: `The Docker image was built and pushed successfully.\n\nImage Tag: ${sha}\nRepository: github-actions-dockerhub:${sha}`,
 };
 
 transporter.sendMail(mailOptions, (error, info) => {
