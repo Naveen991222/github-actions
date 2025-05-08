@@ -47,3 +47,4 @@ jobs:
         run: node .github/sendgrid.js
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+  # manuval 
