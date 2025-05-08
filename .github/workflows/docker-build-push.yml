@@ -36,19 +36,20 @@ jobs:
 
       - name: Send email on success
         if: success()
-        uses: cactuslabs/sendgrid-action@v1
+        uses: peter-evans/sendgrid-email@v1
         with:
-          sendgrid_api_key: ${{ secrets.SENDGRID_API_KEY }}
+          sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
           to: bnaveen0515@gmail.com
           from: sureshkumart305@gmail.com
           subject: "✅ Docker Build & Push Successful - ${{ github.repository }}"
           body: |
             Hello Naveen,
 
-            The Docker image has been built and pushed successfully from the GitHub Actions workflow.
+            Your Docker image has been built and pushed successfully.
 
             🔹 Repository: ${{ github.repository }}
             🔹 Commit SHA: ${{ github.sha }}
             🔹 Image Tag: ${{ steps.vars.outputs.sha_short }}
 
-            – GitHub Actions Bot
+            Regards,
+            GitHub Actions
