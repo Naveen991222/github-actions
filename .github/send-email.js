@@ -13,13 +13,13 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: fromAddress,
-  to: 'bnaveen0515@gmail.com','unnatigupta8449@gmail.com','sureshkumart305@gmail.com'
-  subject: `✅ Docker Image Build Success - Commit ${sha}`,
+  to: 'bnaveen0515@gmail.com',
+  subject: `✅ Docker Build Success - Commit ${sha}`,
   html: `
-    <h2>✅ Docker Build & Push Completed Successfully</h2>
+    <h2>✅ Docker Image Built & Pushed Successfully</h2>
     <p><strong>Commit SHA:</strong> ${sha}</p>
-    <p><strong>Docker Image:</strong> <code>github-actions-dockerhub:${sha}</code></p>
-    <p>Great job! 🎉</p>
+    <p><strong>Docker Image:</strong> <code>${process.env.DOCKER_USERNAME}/github-actions-dockerhub:${sha}</code></p>
+    <p>Great job, Naveen! 🎉</p>
   `,
 };
 
