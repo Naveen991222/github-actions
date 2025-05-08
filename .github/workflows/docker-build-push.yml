@@ -48,3 +48,5 @@ jobs:
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
+          COMMIT_SHA: ${{ steps.vars.outputs.sha_short }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
