@@ -39,12 +39,12 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install SendGrid dependency
-        run: npm install @sendgrid/mail
+      - name: Install nodemailer
+        run: npm install nodemailer
 
       - name: Send email notification
         if: success()
-        run: node .github/sendgrid.js
+        run: node .github/send-email.js
         env:
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-  # manuval 
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
