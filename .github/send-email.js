@@ -25,7 +25,7 @@ const mailOptions = {
     <h2>✅ Docker Image Built & Pushed Successfully</h2>
     <p><strong>Commit SHA:</strong> ${sha}</p>
     <p><strong>Docker Image:</strong> <code>${dockerUser}/github-actions-dockerhub:${sha}</code></p>
-    <p>Great job, Naveen! 🎉</p>
+    <p>Great job, Naveen Yadav! 🎉</p>
   `,
 };
 
