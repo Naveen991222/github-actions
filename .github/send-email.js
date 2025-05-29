@@ -17,7 +17,7 @@ const mailOptions = {
   to: [
     'bnaveen0515@gmail.com',
     'sureshkumart305@gmail.com',
-    'naveen.sugguna@gmail.com,
+    'naveen.sugguna@gmail.com',
     'unnatigupta8449@gmail.com'
   ],
   subject: `✅ Docker Build Success - Commit ${sha}`,
