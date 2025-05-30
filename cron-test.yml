@@ -1,0 +1,12 @@
+name: Test Cron Trigger
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo timestamp
+        run: echo "Cron ran at $(date)"
