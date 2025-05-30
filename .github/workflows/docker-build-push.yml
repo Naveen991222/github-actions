@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Print trigger event
+        run: echo "Triggered by ${{ github.event_name }}"
+        
 
       - name: Get short commit SHA
         id: vars
