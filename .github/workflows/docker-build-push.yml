@@ -1,5 +1,4 @@
 name: Build and Push Docker Image v2
-
 on:
   push:
     branches:
